@@ -1,5 +1,5 @@
-![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/c07939f766fc5de3e40380c3cd868353ffcb3c5f/Seafret%20-%20Atlantis%20(Lyrics).mp3)
-![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/c07939f766fc5de3e40380c3cd868353ffcb3c5f/Noah%20-%20Mungkin%20Nanti%20Lirik%20Video.mp3)
+![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/e43cebbe3b87c9450ca21e87e3566d568740e8a5/Seafret%20-%20Atlantis%20(Lyrics).mp3)
+![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/e43cebbe3b87c9450ca21e87e3566d568740e8a5/Cinta%20Terakhir%20-%20Ari%20Lasso%20LIRIK%20LAGU%20(1).mp3o.mp3)
 ![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/e45e83b34d53875cf12ea3263238258f4f725205/Alex%20Crichton%20-%20What%20If%20I%20Call%20(Merry%20Christmas%2C%20i%20miss%20you).mp3)
 ![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/c07939f766fc5de3e40380c3cd868353ffcb3c5f/Dewa%2019%20-%20Aku%20Milikmu%20Official%20Remastered%20Video.mp3)
 ![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/c07939f766fc5de3e40380c3cd868353ffcb3c5f/Cinta%20Terakhir%20-%20Ari%20Lasso%20LIRIK%20LAGU%20(1).mp3)
