@@ -3,3 +3,8 @@
 ![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/e45e83b34d53875cf12ea3263238258f4f725205/Alex%20Crichton%20-%20What%20If%20I%20Call%20(Merry%20Christmas%2C%20i%20miss%20you).mp3)
 ![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/c07939f766fc5de3e40380c3cd868353ffcb3c5f/Dewa%2019%20-%20Aku%20Milikmu%20Official%20Remastered%20Video.mp3)
 ![audio alt](https://github.com/NOVA-tri/Music-Fav/blob/c07939f766fc5de3e40380c3cd868353ffcb3c5f/Cinta%20Terakhir%20-%20Ari%20Lasso%20LIRIK%20LAGU%20(1).mp3)
+![img alt](https://github.com/NOVA-tri/Music-Fav/blob/cf584c7b6d0435c4f3706b015fbcf2974d7f650e/images.jpeg)
+![img alt](https://github.com/NOVA-tri/Music-Fav/blob/cf584c7b6d0435c4f3706b015fbcf2974d7f650e/images%20(2).jpeg)
+![img alt](https://github.com/NOVA-tri/Music-Fav/blob/cf584c7b6d0435c4f3706b015fbcf2974d7f650e/images%20(1).jpeg)
+![img alt](https://github.com/NOVA-tri/Music-Fav/blob/cf584c7b6d0435c4f3706b015fbcf2974d7f650e/e850a6af940d44800207bd7cf5d2dbded6ca5c1e.jpeg)
+![img alt](https://github.com/NOVA-tri/Music-Fav/blob/cf584c7b6d0435c4f3706b015fbcf2974d7f650e/artworks-000066174739-tnchju-t1080x1080.jpg)
