@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOVA MUSIC</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #090909;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background: #111;
+  padding: 22px;
+  text-align: center;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  color: #1ed760;
+  letter-spacing: 4px;
+}
+
+header p {
+  color: #aaa;
+  margin-top: 8px;
+}
+
+.container {
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.hero {
+  background: linear-gradient(135deg,#123d27,#111);
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.hero h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.search {
+  width: 100%;
+  padding: 14px;
+  border-radius: 25px;
+  border: none;
+  margin: 15px 0;
+  background: #222;
+  color: white;
+}
+
+.upload {
+  background: #1ed760;
+  color: black;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.song {
+  background: #181818;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.song:hover {
+  background: #292929;
+}
+
+.cover {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: #245d3a;
+}
+
+.song-info {
+  flex: 1;
+}
+
+.song-info h3 {
+  font-size: 15px;
+}
+
+.song-info p {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.favorite {
+  color: #1ed760;
+  font-size: 22px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #151515;
+  padding: 15px;
+  border-top: 1px solid #333;
+  text-align: center;
+}
+
+.player h3 {
+  color: #1ed760;
+  margin-bottom: 8px;
+}
+
+audio {
+  width: 100%;
+  max-width: 500px;
+}
+
+section {
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+#favorites {
+  color: #1ed760;
+}
+
+footer {
+  text-align: center;
+  color: #777;
+  padding: 30px;
+  margin-bottom: 100px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>NOVA MUSIC</h1>
+  <p>All Your Favorite Songs In One Place</p>
+</header>
+
+<div class="container">
+
+  <div class="hero">
+    <h2>Welcome to NOVA MUSIC</h2>
+    <p>Dengarkan musik favoritmu kapan saja.</p>
+  </div>
+
+  <h2>Semua Lagu 🎵</h2>
+
+  <input
+    class="search"
+    id="search"
+    placeholder="Cari judul lagu..."
+    oninput="renderSongs()"
+  >
+
+  <label class="upload" for="upload">
+    + Upload Lagu
+  </label>
+  <input
+    type="file"
+    id="upload"
+    accept="audio/*"
+    multiple
+    hidden
+    onchange="uploadSongs(this.files)"
+  >
+
+  <section>
+    <div id="songList"></div>
+  </section>
+
+  <section>
+    <h2>❤️ Lagu Favorit</h2>
+    <div id="favorites"></div>
+  </section>
+
+</div>
+
+<div class="player">
+  <h3 id="nowPlaying">NOVA MUSIC PLAYER</h3>
+  <audio id="audio" controls></audio>
+</div>
+
+<footer>
+  <p>© 2026 NOVA MUSIC</p>
+  <p>Music is the language of the soul.</p>
+</footer>
+
+<script>
+
+let songs = [
+  {
+    title: "Atlantis",
+    artist: "Seafret",
+    file: "lagu/Atlantis.mp3",
+    cover: "https://picsum.photos/200?1"
+  },
+  {
+    title: "Cinta Terakhir",
+    artist: "Favorit",
+    file: "lagu/Cinta-Terakhir.mp3",
+    cover: "https://picsum.photos/200?2"
+  },
+  {
+    title: "Merry Christmas I Miss You",
+    artist: "Favorit",
+    file: "lagu/Merry-Christmas.mp3",
+    cover: "https://picsum.photos/200?3"
+  },
+  {
+    title: "Mungkin Nanti",
+    artist: "Peterpan",
+    file: "lagu/Mungkin-Nanti.mp3",
+    cover: "https://picsum.photos/200?4"
+  },
+  {
+    title: "Aku Milikmu",
+    artist: "Dewa 19",
+    file: "lagu/Aku-Milikmu.mp3",
+    cover: "https://picsum.photos/200?5"
+  },
+  {
+    title: "Bagai Bintang di Surga",
+    artist: "Peterpan",
+    file: "lagu/Bagai-Bintang.mp3",
+    cover: "https://picsum.photos/200?6"
+  }
+];
+
+let favorites = [];
+let audio = document.getElementById("audio");
+
+function renderSongs() {
+  let search = document
+    .getElementById("search")
+    .value.toLowerCase();
+
+  let list = document.getElementById("songList");
+  list.innerHTML = "";
+
+  songs.forEach((song, index) => {
+    if (!song.title.toLowerCase().includes(search)) return;
+
+    list.innerHTML += `
+      <div class="song">
+        <img class="cover" src="${song.cover}">
+        <div class="song-info" onclick="playSong(${index})">
+          <h3>${song.title}</h3>
+          <p>${song.artist}</p>
+        </div>
+        <button class="favorite"
+          onclick="toggleFavorite(${index})">♡</button>
+      </div>
+    `;
+  });
+}
+
+function playSong(index) {
+  let song = songs[index];
+
+  audio.src = song.file;
+  audio.play();
+
+  document.getElementById("nowPlaying").innerText =
+    "▶ " + song.title;
+}
+
+function toggleFavorite(index) {
+  if (favorites.includes(index)) {
+    favorites = favorites.filter(i => i !== index);
+  } else {
+    favorites.push(index);
+  }
+
+  renderFavorites();
+}
+
+function renderFavorites() {
+  let list = document.getElementById("favorites");
+  list.innerHTML = "";
+
+  favorites.forEach(index => {
+    let song = songs[index];
+
+    list.innerHTML += `
+      <div class="song" onclick="playSong(${index})">
+        <img class="cover" src="${song.cover}">
+        <div class="song-info">
+          <h3>${song.title}</h3>
+          <p>${song.artist}</p>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function uploadSongs(files) {
+  Array.from(files).forEach(file => {
+    let url = URL.createObjectURL(file);
+
+    songs.push({
+      title: file.name.replace(/\.[^/.]+$/, ""),
+      artist: "Lagu Upload Sendiri",
+      file: url,
+      cover: "https://picsum.photos/200?random=" + songs.length
+    });
+  });
+
+  renderSongs();
+}
+
+renderSongs();
+renderFavorites();
+
+</script>
+
+</body>
+</html>
